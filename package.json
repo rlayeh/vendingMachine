@@ -1,0 +1,55 @@
+{
+  "name": "VendingMachine",
+  "private": true,
+  "version": "0.0.1",
+  "description": "VendingMachine",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "dev": "webpack -d --watch",
+    "build": "webpack -p",
+    "test": "ava -c 8"
+  },
+  "author": "Ryszard Jakielski",
+  "license": "",
+  "dependencies": {
+    "compression": "^1.6.2",
+    "express": "^4.15.2",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "react-redux": "^5.0.3",
+    "redux": "^3.6.0"
+  },
+  "devDependencies": {
+    "ava": "^0.18.2",
+    "babel-core": "^6.23.1",
+    "babel-loader": "^6.4.0",
+    "babel-preset-es2015": "^6.22.0",
+    "babel-preset-react": "^6.23.0",
+    "css-loader": "^0.26.2",
+    "eslint": "^3.17.1",
+    "postcss-cssnext": "^2.9.0",
+    "postcss-loader": "^1.3.3",
+    "react": "^15.4.2",
+    "sinon": "^1.17.7",
+    "style-loader": "^0.13.2",
+    "webpack": "^2.2.1"
+  },
+  "babel": {
+    "presets": [
+      "es2015",
+      "react"
+    ]
+  },
+  "ava": {
+    "files": [
+      "src/**/*.spec.js"
+    ],
+    "require": [
+      "babel-register"
+    ],
+    "babel": "inherit",
+    "timeout": "240s",
+    "verbose": true
+  }
+}
