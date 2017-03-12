@@ -1,8 +1,12 @@
-import { combineReducers } from 'redux'
-import exampleReducer from './exampleReducer'
+import { combineReducers } from "redux"
+import products from "./products"
+import wallet from "./wallet"
+import machine from "./machine"
 
-const gameApp = combineReducers({
-  exampleReducer
+const vendingMachine = combineReducers({
+  products,
+  wallet,
+  machine
 })
 
-export default gameApp
+export default vendingMachine

@@ -1,4 +1,4 @@
-import {getData, setData, reset} from "./fakeDataProvider"
+import { getData, setData, resetStorage } from "./fakeDataProvider"
 import resultState from  "./resultState"
 import executeWithPromise from "./executeWithPromise"
 import { getUpdatedWallet, checkPrice } from "./walletHandler"
@@ -45,4 +45,4 @@ export const buy = (productId, payment, storage = sessionStorage) =>
   executeWithPromise(() => checkAndBuy(productId, getProduct(productId, storage), payment, storage))
 
 export const reset = (storage = sessionStorage) =>
-  executeWithPromise(() => reset(storage))
+  executeWithPromise(() => resetStorage(storage))

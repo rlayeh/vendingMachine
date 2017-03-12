@@ -1,14 +1,14 @@
 import { getWallet, getProducts, buy, reset } from "../api/apiConnector"
 
 export const actions = {
-  insertCoin: "INSERT_COIN",
   getWallet: "GET_WALLET",
   getProducts: "GET_PRODUCTS",
+  insertCoin: "INSERT_COIN",
   returnCoins: "RETURN_COINS",
   walletReceived: "WALLET_RECEIVED",
   productsReceived: "PRODUCTS_RECEIVED",
-  buy: "BUY",
-  error: "ERROR"
+  executeBuy: "BUY",
+  messageReceived: "RECEIVED_MESSAGE"
 }
 
 const walletReceived = wallet => {
@@ -25,10 +25,24 @@ const productsReceived = products => {
   }
 }
 
-const error = message => {
+const messageReceived = message => {
   return {
-    type: actions.error,
+    type: actions.messageReceived,
     message
+  }
+}
+
+export const restart = value => {
+  return dispatch => {
+    reset()
+      .then(result => {
+        dispatch(messageReceived(null));
+        dispatch(getWallet());
+        dispatch(getProducts());
+      })
+      .catch(exception => {
+        dispatch(messageReceived(exception.message));
+      })
   }
 }
 
@@ -40,40 +54,41 @@ export const insertCoin = value => {
 }
 
 export const returnCoins = () => {
-  return {
-    type: actions.returnCoins
+  return dispatch => {
+    dispatch(fetchWallet());
   }
 }
 
-export const getWallet = () => {
+export const fetchWallet = () => {
   return dispatch => {
     getWallet()
       .then(wallet => dispatch(walletReceived(wallet)))
       .catch(exception => {
-        throw exception
+        dispatch(messageReceived(exception.message));
       })
   }
 }
 
-export const getProducts = () => {
+export const fetchProducts = () => {
   return dispatch => {
     getProducts()
       .then(products => dispatch(walletReceived(products)))
       .catch(exception => {
-        dispatch(error(exception.message));
+        dispatch(messageReceived(exception.message));
       })
   }
 }
 
-export const buy = (productId, payment) => {
+export const executeBuy = (productId, payment) => {
   return dispatch => {
     buy(productId, payment)
-      .then(() => {
+      .then(result => {
+        dispatch(messageReceived(result.message));
         dispatch(getWallet());
         dispatch(getProducts());
       })
       .catch(exception => {
-        dispatch(error(exception.message));
+        dispatch(messageReceived(exception.message));
       })
   }
 }
