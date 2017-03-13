@@ -8,7 +8,7 @@ const triggerWithResult = (result, resolve, reject) => {
   resolve(result)
 }
 
-export default executeWithPromise = func => 
+export default func => 
   new Promise( (resolve, reject) => {
     triggerWithResult(func(), resolve, reject)
   })

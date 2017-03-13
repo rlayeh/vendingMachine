@@ -1,3 +1,5 @@
+import resultState from "./resultState"
+
 const getUpdatedProduct = product => {
   return {
     name: product.name,
