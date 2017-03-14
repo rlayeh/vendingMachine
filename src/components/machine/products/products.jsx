@@ -3,11 +3,12 @@ import cls from "./products.css"
 
 import Product from "./product/product"
 
-const Products = ({ products }) =>
+const Products = ({ products, onClick }) =>
   <div className={cls.wrapper}>
     {
       Object.keys(products).map(key =>
         <Product 
+          key={key}
           name={products[key].name} 
           ammount={products[key].ammount}
           price={products[key].price}

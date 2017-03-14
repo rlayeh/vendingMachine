@@ -7,7 +7,7 @@ const InsertCounter = ({ inserted, onReset }) =>
     <div className={cls.ammountWrapper}>
       <span className={cls.ammount}>{inserted}</span>
     </div>
-    <div className={cls.reset}>Reset</div>
+    <div className={cls.reset} onClick={() => onReset()}>Reset</div>
   </div>
 
 InsertCounter.propTypes = {

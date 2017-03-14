@@ -32,13 +32,13 @@ const messageReceived = message => {
   }
 }
 
-export const restart = value => {
+export const restart = () => {
   return dispatch => {
     reset()
       .then(result => {
         dispatch(messageReceived(null));
-        dispatch(getWallet());
-        dispatch(getProducts());
+        dispatch(fetchWallet());
+        dispatch(fetchProducts());
       })
       .catch(exception => {
         dispatch(messageReceived(exception.message));
@@ -72,7 +72,7 @@ export const fetchWallet = () => {
 export const fetchProducts = () => {
   return dispatch => {
     getProducts()
-      .then(products => dispatch(walletReceived(products)))
+      .then(products => dispatch(productsReceived(products)))
       .catch(exception => {
         dispatch(messageReceived(exception.message));
       })
@@ -84,11 +84,12 @@ export const executeBuy = (productId, payment) => {
     buy(productId, payment)
       .then(result => {
         dispatch(messageReceived(result.message));
-        dispatch(getWallet());
-        dispatch(getProducts());
+        dispatch(fetchWallet());
+        dispatch(fetchProducts());
       })
       .catch(exception => {
         dispatch(messageReceived(exception.message));
+        console.log(exception);
       })
   }
 }

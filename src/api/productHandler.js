@@ -11,7 +11,7 @@ const getUpdatedProduct = product => {
 
 export const getUpdatedProducts = (products, productId) =>
   Object.assign({},products, {
-    [productId]: getUpdatedProduct(product)
+    [productId]: getUpdatedProduct(products[productId])
   })
 
 export const checkAmmount = ammount => {

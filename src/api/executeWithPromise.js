@@ -1,7 +1,7 @@
 import resultState from "./resultState"
 
 const triggerWithResult = (result, resolve, reject) => {
-  if (result.state === resultState.error){
+  if (result && result.state === resultState.error){
     reject(result)
     return
   }

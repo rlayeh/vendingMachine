@@ -3,11 +3,16 @@ import cls from "./wallet.css"
 
 import Coin from "./coin/coin"
 
-const Wallet = ({wallet}) =>
+const Wallet = ({wallet, onClick}) =>
   <div className={cls.wrapper}>
     {
       Object.keys(wallet).map(key => 
-        <Coin value={key} ammount={wallet[key]} onClick={()=>onClick(key)}/>
+        <Coin
+          key={key}
+          value={key}
+          ammount={wallet[key]}
+          onClick={()=>onClick(key)}
+        />
       )
     }
   </div>

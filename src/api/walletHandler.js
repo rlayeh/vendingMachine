@@ -24,7 +24,7 @@ const updateValues = (payment, change, wallet) => {
 }
 
 export const getUpdatedWallet = (payment, price, wallet) =>
-  updateValues(payment, getChangeCoins(getPaidAmmount(payment - price), wallet))
+  updateValues(payment, getChangeCoins(getPaidAmmount(payment) - price), wallet)
 
 export const checkPrice = (price, payment) => {
   if (getPaidAmmount(payment) < price) {

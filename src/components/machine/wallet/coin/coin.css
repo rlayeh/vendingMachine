@@ -1,0 +1,23 @@
+:local(.wrapper) {
+  border: 1px solid blue;
+  padding: 20px;
+  flex: 1;
+}
+
+:local(.shape) {
+  border-radius: 50px;
+  width: 100px;
+  height: 100px;
+  border: 1px solid black;
+  position: relative;
+  margin: 0 auto;
+  cursor: pointer;
+  background-color: #EE9E3A;
+}
+
+:local(.value) {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}

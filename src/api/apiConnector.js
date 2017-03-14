@@ -32,7 +32,6 @@ const executeBuy = (productId, product, payment, storage) => {
 const checkAndBuy = (productId, product, payment, storage) => 
   checkState(product, payment) || executeBuy(productId, product, payment, storage)
 
-
 export const getWallet = (storage = sessionStorage) =>
   executeWithPromise(() => getData(storage).wallet)
 

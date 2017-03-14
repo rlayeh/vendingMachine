@@ -20,15 +20,17 @@ const mapStateToProps = (state, ownProps) => {
 const getInsertedAmmount = inserted =>
   5 * (inserted["5"] || 0) + 2 * (inserted["2"] || 0) + (inserted["1"] || 0)
 
-let Machine = ({ wallet, inserted, products, message, dispatch }) => 
+let Machine = ({ wallet, inserted, products, message, dispatch }) =>
   <div className={cls.wrapper}>
-    <div className={cls.appReset}>Reset Vending Machine</div>
+    <div className={cls.appReset} onClick={() => dispatch(restart())}>Reset Vending Machine</div>
     <div className={cls.walletWrapper}>
       <Wallet wallet={wallet} onClick={ammount => dispatch(insertCoin(ammount))} />
-      <InsertedCounter inserted={getInsertedAmmount(inserted)} onReset={() => dispatch(restart())} />
+      <InsertedCounter inserted={getInsertedAmmount(inserted)} onReset={() => dispatch(returnCoins())} />
     </div>
-    {message && <Message message={message} />}
-    <Products products={products} onClick={productId=>dispatch(executeBuy(productId, inserted))} />
+    <div className={cls.productsWrapper}>
+      {message && <Message message={message} />}
+      <Products products={products} onClick={productId=>dispatch(executeBuy(productId, inserted))} />
+    </div>
   </div>
 
 
