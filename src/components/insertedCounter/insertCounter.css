@@ -1,0 +1,23 @@
+:local(.wrapper) {
+  width: 30%;
+  text-align: center;
+}
+
+:local(.label) {
+  display: inline-block;
+  padding: 20px 0 0 10px;
+  font-size: 24px;
+  color: #3A5F92;
+  width: 100%;
+}
+
+:local(.ammount) {
+  display: inline-block;
+  font-size: 48px;
+  color: #D43838;
+  width: 100%;
+}
+
+:local(.reset) {
+  display: inline-block;
+}

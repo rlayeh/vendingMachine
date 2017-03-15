@@ -6,7 +6,7 @@ import thunkMiddleware from 'redux-thunk'
 import vendingMachine from './reducers'
 import { fetchWallet, fetchProducts } from "./actions"
 
-import Machine from "./components/machine/machine"
+import Machine from "./containers/machine/machine"
 
 let store = createStore(
   vendingMachine,

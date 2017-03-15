@@ -6,6 +6,7 @@
   padding: 20px;
   background-color: rgba(255,255,255,0.5);
   margin-bottom: 10px;
+  text-align: center;
 
   &:nth-child(3n+3){
     margin-left: 5%;
@@ -25,5 +26,26 @@
   width: 100%;
   cursor: pointer;
   color: white;
-  background-color: #D43838
+  background-color: #D43838;
+  opacity: 0.8;
+  margin: 10px 0;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+:local(.name) {
+  font-size: 24px;
+  color: #D43838;
+  padding: 30px 0;
+  display: inline-block;
+}
+
+:local(.ammount0),
+:local(.price) {
+  display: block;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 5px;
 }

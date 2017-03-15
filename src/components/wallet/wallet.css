@@ -1,0 +1,10 @@
+:local(.wrapper) {
+  display: flex;
+  flex: 1;
+}
+
+:local(.label) {
+  font-size: 24px;
+  padding: 20px;
+  color: #3A5F92;
+}

@@ -1,18 +1,23 @@
 :local(.wrapper) {
-  border: 1px solid blue;
   padding: 20px;
-  flex: 1;
+  width: 70px;
+  overflow: visible;
 }
 
 :local(.shape) {
   border-radius: 50px;
   width: 100px;
   height: 100px;
-  border: 1px solid black;
   position: relative;
   margin: 0 auto;
   cursor: pointer;
   background-color: #EE9E3A;
+  z-index: 1;
+  border: 2px solid #FEAE4A;
+
+  &:hover {
+    z-index: 20;
+  }
 }
 
 :local(.value) {
@@ -20,4 +25,11 @@
   top: 50%;
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
+  font-size: 48px;
+  font-weight: 500;
+  color: #D43838;
+}
+
+:local(.ammount) {
+  margin-left: 40px;
 }

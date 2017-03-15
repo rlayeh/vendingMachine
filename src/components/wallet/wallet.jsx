@@ -5,6 +5,9 @@ import Coin from "./coin/coin"
 
 const Wallet = ({wallet, onClick}) =>
   <div className={cls.wrapper}>
+    <div className={cls.label}>
+      Wallet
+    </div>
     {
       Object.keys(wallet).map(key => 
         <Coin

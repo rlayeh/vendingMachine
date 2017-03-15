@@ -1,13 +1,13 @@
 import React, { PropTypes } from "react"
+import cx from "classnames";
 
 import cls from "./insertCounter.css"
 
 const InsertCounter = ({ inserted, onReset }) =>
   <div className={cls.wrapper}>
-    <div className={cls.ammountWrapper}>
-      <span className={cls.ammount}>{inserted}</span>
-    </div>
-    <div className={cls.reset} onClick={() => onReset()}>Reset</div>
+    <span className={cls.label}>Inserted Ammount</span>
+    <span className={cls.ammount}>{inserted}</span>
+    <span className={cx(cls.reset, "button")} onClick={() => onReset()}>Reset</span>
   </div>
 
 InsertCounter.propTypes = {

@@ -8,7 +8,8 @@ export const actions = {
   walletReceived: "WALLET_RECEIVED",
   productsReceived: "PRODUCTS_RECEIVED",
   executeBuy: "BUY",
-  messageReceived: "RECEIVED_MESSAGE"
+  messageReceived: "RECEIVED_MESSAGE",
+  messageCleared: "MESSAGE_CLEARED"
 }
 
 const walletReceived = wallet => {
@@ -29,6 +30,12 @@ const messageReceived = message => {
   return {
     type: actions.messageReceived,
     message
+  }
+}
+
+export const hideMessage = () => {
+  return {
+    type: actions.messageCleared
   }
 }
 

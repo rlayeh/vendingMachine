@@ -1,0 +1,69 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:300,300italic,400,400italic,500);
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  min-width: 320px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+#root {
+  height: 100%;
+}
+
+span,
+div{
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+}
+
+.button {
+  padding: 5px 10px;
+  color: #3A5F92;
+  font-weight: 400;
+  cursor: pointer;
+  border: 2px solid #3A5F92;
+  border-radius: 30px;
+}
+
+:local(.topSection) {
+  background-color: #BFDAFF;
+}
+
+:local(.content) {
+  max-width: 1024px;
+  margin: 0 auto;
+}
+
+:local(.wrapper) {
+  background-color: #3A5F92;
+  width: 100%;
+  min-height: 100%;
+}
+
+:local(.navBar) {
+  width: 100%;
+  text-align: right;
+  padding: 20px 0;
+}
+
+:local(.appReset) {
+  display: inline-block;
+}
+
+:local(.walletWrapper) {
+  display: flex;
+  margin: 0 auto;
+}
